@@ -20,18 +20,17 @@ def groups_of_3(list1):
     return new_list
 
 # Terminate the program for incorrect argument
-if len(args) != 2:
-    print('Please enter the image file name.')
+
+if len(args) != 4 or type(args[2]) != 'str' or type(args[3])!= int or type(args[4])!= int or type(args[5])!= int:
+    print('Usage: python3 fade.py <image> <row> <column> <radius>')
     exit()
 
 try:
     # This part is to re-organize the information stored in the image file into a list.
-    fin = open(args[1])
-
+    fin = open(args[2])
     list_values = []
     for lines in fin:
-        # The values after split would be in type str
-        values = lines.split()
+        values = lines.split() #values would be a list of strings
         for i in range(len(values)):
             if values[i].isdigit() == True:
                 list_values.append(int(values[i]))
@@ -48,29 +47,7 @@ try:
     rgb_values = list_values[4:]
     rgb_group = groups_of_3(rgb_values)
 
-    # Decode the color component
-    new_image = []
-    for pixel in rgb_group:
-
-        pixel[0] *= 10
-        if pixel[0] > 255:
-            pixel[0] = '255'
-        else:
-            pixel[0] = str(pixel[0])
-        pixel[1] = pixel [0]
-        pixel[2] = pixel [0]
-        new_image.append(pixel)
-    fin.close()
-
-    # Output the solved image
-    fout = open('solved.ppm', 'w')
-    fout.write(str(header)+'\n'+str(width)+' '+str(height)+'\n'+str(maximum)+'\n')
-    # Write the list formatted pixel to a string formatted.
-    s = ''
-    for pixel in new_image:
-        for item in pixel:
-            fout.write(str(item)+'\n')
-    fout.close()
+    #Calculate the distance each pixel has to the specified point(center of fade)
 
 except:
-    print('Unable to open',args[1])
+    print('Unable to open'+args[1])
