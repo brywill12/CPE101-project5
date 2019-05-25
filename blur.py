@@ -1,12 +1,12 @@
 #Project5
-#Name: Kitty Zhuang and Branyt Williamson
+#Name: Kitty Zhuang and Bryant Williamson
 #Instructor: Einakian
 #Section: 1
 
 ################################################
 
 # Project5
-# Name: Kitty Zhuang and Branyt Williamson
+# Name: Kitty Zhuang and Bryant Williamson
 # Instructor: Einakian
 # Section: 1
 
